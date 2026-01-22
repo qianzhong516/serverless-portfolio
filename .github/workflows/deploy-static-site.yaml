@@ -2,6 +2,8 @@ name: Deploy Static Site
 on:
   push:
     branches: [main, release/**]
+    paths-ignore:
+      - "README.md"
 
 permissions:
   id-token: write
