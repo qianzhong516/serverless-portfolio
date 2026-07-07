@@ -1,8 +1,7 @@
 packages:
   - .
 allowBuilds:
-  cypress: false
-  unrs-resolver: false
+  sharp: true
 ignoredBuiltDependencies:
-  - sharp
+  - cypress
   - unrs-resolver
