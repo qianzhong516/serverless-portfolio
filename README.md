@@ -72,7 +72,7 @@ flowchart TD
 Separate staging and production environments are provisioned using Terraform workspaces parameterized by environment-specific variables.
 
 - Staging (https://staging.janice-zhong.com): Staging deployments are triggered by pushes to the main branch.
-- Production (https://janice-zhong.com): Production deployments are triggered by pushes to a release branch (e.g, `release/v1.0.0`). Release tags (e.g, `v1.0.0`) are created afterward to provide immutable versioning of production releases.
+- Production (https://janice-zhong.com): Production deployments are triggered by a release tag (e.g, `v1.0.0`) to provide immutable versioning of production releases.
 
 ### Steps to Create a Production Release
 
@@ -94,8 +94,8 @@ Separate staging and production environments are provisioned using Terraform wor
 
 The application uses a single GitHub Actions workflow to deploy on different environments:
 
-- "Pushes to main" → deploy on staging
-- "Pushes to a release branch" → deploy on production
+- Pushes to main → deploy on staging
+- Release tags (`v1.0.0`) → deploy on production
 
 Environment specific variables and secrets are auto selected based on the deployment target.
 
