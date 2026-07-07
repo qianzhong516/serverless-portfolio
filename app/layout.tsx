@@ -19,8 +19,9 @@ const righteous = Righteous({
 });
 
 export const metadata: Metadata = {
-  title: "Janice Zhong",
-  description: "Resume about Janice Zhong",
+  title: "Serveless Portfolio",
+  description:
+    "This project demonstrates a production-style serverless deployment on AWS featuring Infrastructure as Code, CI/CD, multi-environment deployment, and a serverless backend that maintains a page visitor counter.",
 };
 
 export default function RootLayout({
