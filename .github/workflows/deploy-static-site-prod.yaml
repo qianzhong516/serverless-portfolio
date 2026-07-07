@@ -1,9 +1,9 @@
-name: Deploy Static Site
+name: Deploy Static Site to Production
+run-name: ${{ github.actor }} is deploying the site to Production 🚀
 on:
   push:
-    branches: [main, release/**]
-    paths-ignore:
-      - "README.md"
+    tags:
+      - "v*"
 
 permissions:
   id-token: write
@@ -11,7 +11,7 @@ permissions:
 jobs:
   Deploy-static-site:
     runs-on: ubuntu-latest
-    environment: ${{ github.ref == 'refs/heads/main' && 'Staging' || startsWith(github.ref, 'refs/heads/release/') && 'Prod' }}
+    environment: Prod
     steps:
       - name: Checkout code
         uses: actions/checkout@v7.0.0
