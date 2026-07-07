@@ -2,6 +2,8 @@
 
 **Live Demo:** https://janice-zhong.com
 
+Release version: v2.0.0
+
 This project demonstrates a production-style serverless deployment on AWS featuring Infrastructure as Code, CI/CD, multi-environment deployment, and a serverless backend that maintains a page visitor counter.
 
 ## Table of Contents
