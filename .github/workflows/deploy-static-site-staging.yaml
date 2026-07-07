@@ -1,4 +1,5 @@
-name: Deploy Static Site
+name: Deploy Static Site to Staging
+run-name: ${{ github.actor }} is deploying the site to Staging 🚀
 on:
   push:
     branches: [main]

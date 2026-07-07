@@ -1,4 +1,5 @@
-name: Deploy Static Site
+name: Deploy Static Site to Production
+run-name: ${{ github.actor }} is deploying the site to Production 🚀
 on:
   push:
     tags:
