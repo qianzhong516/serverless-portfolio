@@ -1,0 +1,372 @@
+:root {
+  --speed: 15s;
+  --treesize: 10vmin;
+}
+
+.sunrise-container {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+}
+
+.sunrise-sky {
+  position: absolute;
+  inset: 0;
+  background: #333;
+  animation: brightsky var(--speed) infinite ease-in-out;
+}
+
+.sunrise-sun {
+  position: absolute;
+  top: 60vh;
+  left: -12vmin;
+  height: 10vmin;
+  width: 10vmin;
+  border-radius: 100%;
+  background: #fff;
+  animation: sunrise var(--speed) infinite ease-in-out;
+  box-shadow:
+    inset 0 0 5vmin #f33,
+    inset 2vmin 0 4vmin #f62,
+    inset -2vmin 0 4vmin #f62,
+    0 0 5vmin #f33,
+    0 0 20vmin #f33,
+    0 0 40vmin #f33,
+    0 0 100vmin #f33;
+}
+
+.sunrise-ground {
+  position: absolute;
+  height: 45vh;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #111;
+  animation: lightground var(--speed) infinite ease-in-out;
+}
+
+@keyframes sunrise {
+  0% {
+    top: 62vh;
+    left: -12vmin;
+    opacity: 0;
+    box-shadow:
+      inset 0 0 5vmin #f33,
+      inset 2vmin 0 4vmin #f62,
+      inset -2vmin 0 4vmin #f62,
+      0 0 5vmin #f33,
+      0 0 20vmin #f33,
+      0 0 40vmin #f33,
+      0 0 100vmin #f33;
+  }
+  8% {
+    opacity: 1;
+  }
+  35% {
+    top: 12vh;
+    left: 45vw;
+    opacity: 1;
+    box-shadow:
+      inset 0 0 5vmin #fff,
+      inset 2vmin 0 4vmin #fc2,
+      inset -2vmin 0 4vmin #fc2,
+      0 0 5vmin #fff,
+      0 0 20vmin #ffd,
+      0 0 40vmin #ffd,
+      0 0 100vmin #fff;
+  }
+  70% {
+    top: 62vh;
+    left: 102vw;
+    opacity: 1;
+    box-shadow:
+      inset 0 0 5vmin #f33,
+      inset 2vmin 0 4vmin #f62,
+      inset -2vmin 0 4vmin #f62,
+      0 0 5vmin #f33,
+      0 0 20vmin #f33,
+      0 0 40vmin #f33,
+      0 0 100vmin #f33;
+  }
+  78%,
+  100% {
+    top: 62vh;
+    left: -12vmin;
+    opacity: 0;
+  }
+}
+
+@keyframes brightsky {
+  0%,
+  100% {
+    background: #222;
+  }
+  35%,
+  55% {
+    background: #efefff;
+  }
+  75% {
+    background: #3c2a46;
+  }
+}
+
+@keyframes lightground {
+  0%,
+  100% {
+    background: #111;
+  }
+  35%,
+  65% {
+    background: #478778;
+  }
+}
+
+.sunrise-title {
+  position: absolute;
+  top: 68vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-family: var(--font-righteous), "Righteous", cursive;
+  font-size: clamp(1.75rem, 9vmin, 5.5rem);
+  text-shadow: 0 0.35rem 1rem rgba(0, 0, 0, 0.4);
+  letter-spacing: -0.04em;
+  animation: titleshadow var(--speed) infinite ease-in-out;
+  z-index: 5;
+  text-align: center;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.total-views {
+  position: fixed;
+  top: 78vh;
+  left: 50%;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transform: translateX(-50%);
+  margin: 0;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.62);
+  padding: 0.65rem 1.1rem;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: clamp(0.95rem, 2.2vmin, 1.2rem);
+  font-weight: 700;
+  line-height: 1;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
+  white-space: nowrap;
+}
+
+.total-views span {
+  color: #fff;
+}
+
+@keyframes titleshadow {
+  0%,
+  100% {
+    color: #e5e5e5;
+    text-shadow: 0 0.35rem 1rem rgba(0, 0, 0, 0.55);
+  }
+  35%,
+  65% {
+    color: #fff;
+    text-shadow: 0 0.35rem 1rem rgba(0, 0, 0, 0.35);
+  }
+}
+
+.sunrise-tree {
+  position: absolute;
+  bottom: 32vh;
+  left: 10vw;
+  height: calc(3 * var(--treesize));
+  width: calc(1.5 * var(--treesize));
+  filter: brightness(30%);
+  animation: brighttree var(--speed) infinite ease-in-out;
+}
+
+.sunrise-tree.t2 {
+  bottom: 35vh;
+  left: 80vw;
+}
+
+.sunrise-tree.t3 {
+  bottom: 15vh;
+  left: 3vw;
+}
+
+.sunrise-tree.t4 {
+  bottom: 5vh;
+  left: 15vw;
+}
+
+.sunrise-tree.t5 {
+  bottom: 15vh;
+  left: 85vw;
+}
+
+.sunrise-tree .b,
+.sunrise-tree .t,
+.sunrise-tree .m {
+  position: absolute;
+  top: calc(0.5 * var(--treesize));
+  left: calc(0 * var(--treesize));
+  height: calc(1 * var(--treesize));
+  width: calc(1 * var(--treesize));
+  border-radius: 100%;
+  background: #07734b;
+}
+
+.sunrise-tree .b,
+.sunrise-tree .t {
+  top: calc(1.1 * var(--treesize));
+  left: calc(0.2 * var(--treesize));
+  height: calc(0.6 * var(--treesize));
+  width: calc(0.6 * var(--treesize));
+}
+
+.sunrise-tree .t {
+  top: calc(0.22 * var(--treesize));
+}
+
+.sunrise-tree .right {
+  position: absolute;
+  left: calc(0.5 * var(--treesize));
+}
+
+.sunrise-tree .ls,
+.sunrise-tree .rs {
+  position: absolute;
+  top: calc(0.22 * var(--treesize));
+  left: calc(0.5 * var(--treesize));
+  height: calc(1.6 * var(--treesize));
+  width: calc(0.25 * var(--treesize));
+  background: #07734b;
+  border-radius: 0 0 0 calc(0.1 * var(--treesize));
+}
+
+.sunrise-tree .rs {
+  left: calc(0.75 * var(--treesize));
+  background: #14a670;
+  border-radius: 0 0 calc(0.1 * var(--treesize)) 0;
+}
+
+.sunrise-tree .r {
+  background: #14a670;
+}
+
+.sunrise-tree .lst,
+.sunrise-tree .rst {
+  position: absolute;
+  top: calc(0.1 * var(--treesize));
+  left: calc(0.5 * var(--treesize));
+  height: calc(0.5 * var(--treesize));
+  width: calc(0.25 * var(--treesize));
+  background: #14a670;
+  border-left: calc(0.25 * var(--treesize)) solid #07734b;
+  border-radius: calc(1 * var(--treesize));
+}
+
+.sunrise-tree .stem {
+  position: absolute;
+  top: calc(1.5 * var(--treesize));
+  left: calc(0.625 * var(--treesize));
+  height: calc(1.5 * var(--treesize));
+  width: calc(0.25 * var(--treesize));
+  background: #967969;
+  border-radius: calc(0.1 * var(--treesize));
+  border-bottom: calc(0.03 * var(--treesize)) solid rgba(100, 100, 100, 0.9);
+}
+
+@keyframes brighttree {
+  0%,
+  100% {
+    filter: brightness(30%);
+  }
+  35%,
+  65% {
+    filter: brightness(100%);
+  }
+}
+
+.sunrise-tree .tshadow {
+  position: absolute;
+  top: calc(2.5 * var(--treesize));
+  left: calc(0.5 * var(--treesize));
+  height: calc(1.75 * var(--treesize));
+  width: calc(1 * var(--treesize));
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 100%;
+  transform: rotate(140deg);
+  animation: treeshadow var(--speed) infinite ease-in-out;
+}
+
+@keyframes treeshadow {
+  0%,
+  100% {
+    top: calc(2.5 * var(--treesize));
+    left: calc(0.5 * var(--treesize));
+    height: calc(1.75 * var(--treesize));
+    width: calc(1 * var(--treesize));
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 100%;
+    transform: rotate(140deg);
+  }
+  35%,
+  65% {
+    top: calc(2.7 * var(--treesize));
+    left: calc(0.25 * var(--treesize));
+    height: calc(0.6 * var(--treesize));
+    width: calc(1 * var(--treesize));
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 100%;
+    transform: rotate(180deg);
+  }
+}
+
+@media (max-width: 750px) {
+  .sunrise-title {
+    top: 66vh;
+    font-size: clamp(1.25rem, 7vmin, 3rem);
+    white-space: normal;
+    max-width: 90vw;
+  }
+
+  .total-views {
+    top: 77vh;
+    max-width: 90vw;
+    padding: 0.6rem 0.9rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sunrise-sky,
+  .sunrise-sun,
+  .sunrise-ground,
+  .sunrise-title,
+  .sunrise-tree,
+  .sunrise-tree .tshadow {
+    animation: none;
+  }
+
+  .sunrise-sky {
+    background: #efefff;
+  }
+
+  .sunrise-ground {
+    background: #478778;
+  }
+
+  .sunrise-tree {
+    filter: brightness(100%);
+  }
+
+  .sunrise-title {
+    color: #fff;
+    text-shadow: 0 0.35rem 1rem rgba(0, 0, 0, 0.35);
+  }
+}
