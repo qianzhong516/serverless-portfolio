@@ -2,7 +2,7 @@ name: Deploy Static Site
 on:
   push:
     tags:
-      - "release/v*"
+      - "v*"
 
 permissions:
   id-token: write
