@@ -109,7 +109,7 @@ The workflow performs the following steps:
 
 ## Infrastructure as Code Repository
 
-The infrastructure is provisioned by the [janice-zhong-iac repository](https://github.com/qianzhong516/janice-zhong-iac), which uses Terraform-based pipelines to manage resources.
+The infrastructure is provisioned by the [Serverless Portfolio repository](https://github.com/qianzhong516/serverless-portfolio-iac), which uses Terraform-based pipelines to manage resources.
 
 ## Further Reading
 
